@@ -1,0 +1,8 @@
+{
+  "editor.tabSize": 2,
+  "[elixir]": {
+    "editor.defaultFormatter": "JakeBecker.elixir-ls",
+    "editor.formatOnSave": true
+  },
+  "elixirLS.enableTestLenses": true
+}
