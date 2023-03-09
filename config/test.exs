@@ -18,7 +18,7 @@ config :cider, Cider.Repo,
 config :cider, CiderWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "ioeF+L/o/C4qKeQYWpH5xR5fSYvAHmEp/ymuTfxeoHLo47KoIRmbDFkQX1Xc0YRJ",
-  server: false
+  server: true
 
 # In test we don't send emails.
 config :cider, Cider.Mailer, adapter: Swoosh.Adapters.Test
@@ -31,3 +31,9 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :wallaby,
+  otp_app: :cider,
+  driver: Wallaby.Chrome
+
+config :cider, :sandbox, Ecto.Adapters.SQL.Sandbox

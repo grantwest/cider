@@ -11,6 +11,10 @@ defmodule CiderWeb.Endpoint do
     same_site: "Lax"
   ]
 
+  if sandbox = Application.get_env(:cider, :sandbox) do
+    plug Phoenix.Ecto.SQL.Sandbox, sandbox: sandbox
+  end
+
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
   # Serve at "/" the static files from "priv/static" directory.
