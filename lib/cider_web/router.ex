@@ -17,7 +17,8 @@ defmodule CiderWeb.Router do
   scope "/", CiderWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", IndexLive
+    get "/home", PageController, :home
   end
 
   # Other scopes may use custom stacks.

@@ -55,6 +55,7 @@ defmodule CiderWeb do
         layout: {CiderWeb.Layouts, :app}
 
       unquote(html_helpers())
+      unquote(live_sandbox())
     end
   end
 
@@ -101,6 +102,14 @@ defmodule CiderWeb do
         endpoint: CiderWeb.Endpoint,
         router: CiderWeb.Router,
         statics: CiderWeb.static_paths()
+    end
+  end
+
+  def live_sandbox() do
+    if Cider.env() == :test do
+      quote do
+        on_mount CiderWeb.LiveSandbox
+      end
     end
   end
 

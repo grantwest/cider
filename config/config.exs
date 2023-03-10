@@ -8,7 +8,8 @@
 import Config
 
 config :cider,
-  ecto_repos: [Cider.Repo]
+  ecto_repos: [Cider.Repo],
+  env: Mix.env()
 
 # Configures the endpoint
 config :cider, CiderWeb.Endpoint,

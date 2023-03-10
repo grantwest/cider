@@ -34,6 +34,9 @@ config :phoenix, :plug_init_mode, :runtime
 
 config :wallaby,
   otp_app: :cider,
-  driver: Wallaby.Chrome
+  driver: Wallaby.Chrome,
+  chromedriver: [
+    headless: true
+  ]
 
 config :cider, :sandbox, Ecto.Adapters.SQL.Sandbox
