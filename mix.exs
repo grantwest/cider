@@ -9,7 +9,10 @@ defmodule Cider.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      preferred_cli_env: [
+        "test.watch": :test
+      ]
     ]
   end
 
@@ -51,6 +54,7 @@ defmodule Cider.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       # Added Deps:
+      {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false},
       {:wallaby, "~> 0.30.0", runtime: false, only: :test}
     ]
   end
